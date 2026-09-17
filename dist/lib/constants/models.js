@@ -1,0 +1,25 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.DELETE_ACCOUNT_REQUESTS_MODEL = exports.CLAIM_SCHOOL_ENQUIRY_MODEL = exports.TRANSACTION_MODEL = exports.LEAD_MODEL = exports.FAVORITE_SCHOOL_MODEL = exports.CTA_ENQUIRY_MODEL = exports.SCHOOL_ENQUIRY_MODEL = exports.SCHOOL_REVIEWS_MODEL = exports.AUTHOR_MODEL = exports.SLUG_MODEL = exports.OTP_MODEL = exports.USERS_WALLETS_MODEL = exports.USER_MODEL = exports.CITY_MODEL = exports.SCHOOL_REQUEST_MODEL = exports.SCHOOL_MODEL = exports.FACILITY_MODEL = exports.SCHOOL_CLASSIFICATION_MODEL = exports.SCHOOL_TYPE_MODEL = exports.SCHOOL_BOARD_MODEL = exports.APPCONFIGURATIONS_MODEL = void 0;
+exports.APPCONFIGURATIONS_MODEL = "app-cnfigurations";
+exports.SCHOOL_BOARD_MODEL = "school-boards";
+exports.SCHOOL_TYPE_MODEL = "school-types";
+exports.SCHOOL_CLASSIFICATION_MODEL = "school-classifications";
+exports.FACILITY_MODEL = "facilities";
+exports.SCHOOL_MODEL = "schools";
+exports.SCHOOL_REQUEST_MODEL = "schools_requests";
+exports.CITY_MODEL = "cities";
+exports.USER_MODEL = "users";
+exports.USERS_WALLETS_MODEL = "users_wallets";
+exports.OTP_MODEL = 'otps';
+exports.SLUG_MODEL = "slugs";
+exports.AUTHOR_MODEL = "authors";
+exports.SCHOOL_REVIEWS_MODEL = "school_reviews";
+exports.SCHOOL_ENQUIRY_MODEL = "enquiries";
+exports.CTA_ENQUIRY_MODEL = "cta_enquiries";
+exports.FAVORITE_SCHOOL_MODEL = "favorite_schools";
+exports.LEAD_MODEL = "leads";
+exports.TRANSACTION_MODEL = "transactions";
+exports.CLAIM_SCHOOL_ENQUIRY_MODEL = "claim_school_enquiries";
+exports.DELETE_ACCOUNT_REQUESTS_MODEL = "delete_account_requests";
+//# sourceMappingURL=models.js.map

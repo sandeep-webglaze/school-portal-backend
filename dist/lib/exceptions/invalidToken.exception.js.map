@@ -1,0 +1,1 @@
+{"version":3,"file":"invalidToken.exception.js","sourceRoot":"","sources":["../../../src/lib/exceptions/invalidToken.exception.ts"],"names":[],"mappings":";;;AAAA,2CAAqD;AAErD,MAAa,qBAAsB,SAAQ,4BAAmB;IAC1D,YAAY,OAAgB;QACxB,KAAK,CAAC,OAAO,IAAI,eAAe,CAAC,CAAC;IACtC,CAAC;CACJ;AAJD,sDAIC"}
