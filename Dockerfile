@@ -9,8 +9,12 @@ FROM node:${NODE_VERSION}-alpine AS base
 
 WORKDIR /usr/src/app
 
-# Enable Corepack
+# Enable Corepack (Yarn 4)
 RUN corepack enable
+
+# Force Yarn 4 to use a real node_modules folder instead of PnP, so the
+# COPY --from=deps node_modules step below works.
+ENV YARN_NODE_LINKER=node-modules
 
 
 ################################################################################
