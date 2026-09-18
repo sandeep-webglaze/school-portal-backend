@@ -5,7 +5,6 @@ import { PrometheusModule } from "@willsoto/nestjs-prometheus";
 
 import MongooseConfig from './config/mongoose.config';
 import ThrottlerConfig from './config/rate-limit.config';
-import { QueueConfig } from './config/queue.config';
 import { CachingModule } from './config/caching.config';
 import { AppController } from './app.controller';
 import { ConfigModule } from './config/config.module';
@@ -42,7 +41,6 @@ import { AuthorModule } from './modules/author/author.module';
     MongooseConfig,
     CachingModule,
     ThrottlerConfig,
-    QueueConfig,
     SchoolModule,
     CityModule,
     UserModule,

@@ -13,7 +13,6 @@ const throttler_1 = require("@nestjs/throttler");
 const nestjs_prometheus_1 = require("@willsoto/nestjs-prometheus");
 const mongoose_config_1 = require("./config/mongoose.config");
 const rate_limit_config_1 = require("./config/rate-limit.config");
-const queue_config_1 = require("./config/queue.config");
 const caching_config_1 = require("./config/caching.config");
 const app_controller_1 = require("./app.controller");
 const config_module_1 = require("./config/config.module");
@@ -53,7 +52,6 @@ exports.AppModule = AppModule = __decorate([
             mongoose_config_1.default,
             caching_config_1.CachingModule,
             rate_limit_config_1.default,
-            queue_config_1.QueueConfig,
             school_module_1.SchoolModule,
             city_module_1.CityModule,
             user_module_1.UserModule,

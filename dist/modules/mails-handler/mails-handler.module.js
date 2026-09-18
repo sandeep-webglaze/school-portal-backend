@@ -8,8 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MailsHandlerModule = void 0;
 const common_1 = require("@nestjs/common");
-const bullmq_1 = require("@nestjs/bullmq");
-const mails_processor_1 = require("./mails.processor");
 const mail_service_1 = require("./mail.service");
 const events_1 = require("./events");
 let MailsHandlerModule = class MailsHandlerModule {
@@ -17,22 +15,8 @@ let MailsHandlerModule = class MailsHandlerModule {
 exports.MailsHandlerModule = MailsHandlerModule;
 exports.MailsHandlerModule = MailsHandlerModule = __decorate([
     (0, common_1.Module)({
-        imports: [
-            bullmq_1.BullModule.registerQueue({
-                name: 'EmailDispatchQueue',
-            }),
-            bullmq_1.BullModule.registerFlowProducer({
-                name: 'EmailDispatchFlowProducer',
-            })
-        ],
-        providers: [
-            mail_service_1.MailService,
-            mails_processor_1.MailsProcessor,
-            events_1.MailEvents
-        ],
-        exports: [
-            events_1.MailEvents
-        ]
+        providers: [mail_service_1.MailService, events_1.MailEvents],
+        exports: [events_1.MailEvents],
     })
 ], MailsHandlerModule);
 //# sourceMappingURL=mails-handler.module.js.map

@@ -1,11 +1,9 @@
 import * as nodemailer from 'nodemailer';
-import { InjectQueue } from '@nestjs/bullmq';
 import { ConfigService } from '@nestjs/config';
 import { Injectable, Logger } from '@nestjs/common';
 
 import { EnvironmentVariables } from '@/src/config/env';
 import { IMail } from './interface';
-import { Queue } from 'bullmq';
 
 @Injectable()
 export class MailService {
@@ -16,7 +14,6 @@ export class MailService {
 
     constructor(
         readonly config: ConfigService<EnvironmentVariables>,
-        @InjectQueue('EmailDispatchQueue') private emailQueue: Queue,
     ) {
         this.supportMail = this.config.get('EDHIPPO_SUPPORT_MAIL')
         this.supportMailPass = this.config.get('EDHIPPO_SUPPORT_MAIL_PASSWORD')
@@ -45,9 +42,9 @@ export class MailService {
     }
 
     addEmailJob(job: IMail) {
-        console.log("adding mail job ...", new Date());
-
-        this.emailQueue.add('email', job);
+        // Redis-free: send directly instead of queueing via Bull/Redis.
+        // Fire-and-forget keeps callers non-blocking (sendMail catches its own errors).
+        void this.sendMail(job);
     }
 
     async sendMail(options: IMail) {

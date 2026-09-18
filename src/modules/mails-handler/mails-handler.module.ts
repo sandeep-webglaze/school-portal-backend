@@ -1,26 +1,11 @@
 import { Module } from '@nestjs/common';
-import { BullModule } from '@nestjs/bullmq';
 
-import { MailsProcessor } from './mails.processor';
 import { MailService } from './mail.service';
 import { MailEvents } from './events';
 
+// Redis-free: no Bull queue/processor. Mail is sent directly by MailService.
 @Module({
-  imports: [
-    BullModule.registerQueue({
-      name: 'EmailDispatchQueue',
-    }),
-    BullModule.registerFlowProducer({
-      name: 'EmailDispatchFlowProducer',
-    })
-  ],
-  providers: [
-    MailService,
-    MailsProcessor,
-    MailEvents
-  ],
-  exports: [
-    MailEvents
-  ]
+  providers: [MailService, MailEvents],
+  exports: [MailEvents],
 })
-export class MailsHandlerModule { }
+export class MailsHandlerModule {}
