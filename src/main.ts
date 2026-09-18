@@ -7,7 +7,6 @@ import { AppModule } from './app.module';
 import { SwaggerLoader } from './lib/loaders/swagger.loader';
 import { EnvironmentVariables } from './config/env';
 import { AppSecurityLoader } from './lib/loaders/app_security.loader';
-import { NODE_ENVIRONMENT } from './lib/constants';
 import { Logger } from './lib/loaders/logger.loader';
 
 async function bootstrap() {
