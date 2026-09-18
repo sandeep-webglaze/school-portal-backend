@@ -1,6 +1,7 @@
 {
   "name": "ed-hippo-server",
   "version": "1.6.0",
+  "packageManager": "yarn@4.12.0",
   "description": "",
   "author": "",
   "private": true,
