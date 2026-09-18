@@ -21,7 +21,8 @@ async function bootstrap() {
     (0, app_security_loader_1.AppSecurityLoader)(app);
     app.setGlobalPrefix(config.get('APP_ROUTE_PREFIX'), { exclude: ['metrics'] });
     (0, swagger_loader_1.SwaggerLoader)(app, config);
-    await app.listen(config.get('APP_PORT'));
+    const port = process.env.PORT || config.get('APP_PORT') || 8080;
+    await app.listen(port, '0.0.0.0');
     return app.getUrl();
 }
 (async () => {

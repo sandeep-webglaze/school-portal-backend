@@ -17,9 +17,6 @@ async function bootstrap() {
   const config: ConfigService<EnvironmentVariables> = app.get(ConfigService);
 
   // Apply Cors policy
-  // Allow all origins. `origin: true` reflects the request's Origin header,
-  // which allows every site AND stays compatible with `credentials: true`
-  // (the CORS spec forbids credentials together with a `*` wildcard).
   app.enableCors({
     origin: true,
     credentials: true,
@@ -40,7 +37,11 @@ async function bootstrap() {
   // enable Application Swagger Documentation
   SwaggerLoader(app, config);
 
-  await app.listen(config.get('APP_PORT'));
+  // Listen on the host platform's PORT (e.g. Render/Heroku set process.env.PORT).
+  // Fall back to APP_PORT from env, then 8080 for local dev. Bind 0.0.0.0 so the
+  // container's port is reachable.
+  const port = process.env.PORT || config.get('APP_PORT') || 8080;
+  await app.listen(port as number, '0.0.0.0');
   return app.getUrl();
 }
 
