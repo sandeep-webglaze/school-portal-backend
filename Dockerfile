@@ -9,34 +9,29 @@ FROM node:${NODE_VERSION}-alpine AS base
 
 WORKDIR /usr/src/app
 
-# Enable Corepack so packageManager from package.json controls Yarn version
+# Enable Corepack
 RUN corepack enable
 
 
 ################################################################################
-# Production dependencies
+# Install dependencies
 ################################################################################
 FROM base AS deps
 
 RUN --mount=type=bind,source=package.json,target=package.json \
     --mount=type=bind,source=yarn.lock,target=yarn.lock \
     --mount=type=cache,target=/root/.yarn \
-    yarn install --production --immutable
+    yarn install --immutable
 
 
 ################################################################################
-# Build
+# Build application
 ################################################################################
 FROM deps AS build
 
-RUN --mount=type=bind,source=package.json,target=package.json \
-    --mount=type=bind,source=yarn.lock,target=yarn.lock \
-    --mount=type=cache,target=/root/.yarn \
-    yarn install --immutable
-
 COPY . .
 
-RUN yarn run build
+RUN yarn build
 
 
 ################################################################################
@@ -46,17 +41,13 @@ FROM base AS final
 
 ENV NODE_ENV=production
 
-USER root
-
-RUN chown -R node:node .
-
-USER node
-
-COPY package.json .
-
 COPY --from=deps /usr/src/app/node_modules ./node_modules
 
 COPY --from=build /usr/src/app/dist ./dist
+
+COPY package.json .
+
+USER node
 
 EXPOSE 8080
 
