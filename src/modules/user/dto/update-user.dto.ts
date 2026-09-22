@@ -1,5 +1,5 @@
 import { Types } from 'mongoose';
-import { ArrayMinSize, ArrayUnique, IsArray, IsEmail, IsEnum, IsMongoId, IsNotEmpty, IsPhoneNumber, IsString } from 'class-validator';
+import { ArrayMinSize, ArrayUnique, IsArray, IsEmail, IsEnum, IsMongoId, IsNotEmpty, Matches, IsString } from 'class-validator';
 import { ApiProperty, OmitType, PartialType } from '@nestjs/swagger';
 
 import { USER_VERIFICATION_STATUS } from '@/src/lib/constants';
@@ -24,7 +24,7 @@ export class ToggleUsersVerificationDto implements Partial<IUser> {
 }
 
 export class RequestVerificationDtoPhone {
-    @IsPhoneNumber('IN')
+    @Matches(/^\+?[0-9\s()-]{6,20}$/, { message: 'Please enter a valid phone number' })
     @IsNotEmpty()
     @ApiProperty({
         required: true,

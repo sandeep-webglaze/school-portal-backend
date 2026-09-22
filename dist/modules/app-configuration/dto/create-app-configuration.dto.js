@@ -19,7 +19,7 @@ class ContactUsDto {
 exports.ContactUsDto = ContactUsDto;
 __decorate([
     (0, swagger_1.ApiProperty)({ required: true, example: "1212121212", description: "Phone number for contact us" }),
-    (0, class_validator_1.IsPhoneNumber)('IN'),
+    (0, class_validator_1.Matches)(/^\+?[0-9\s()-]{6,20}$/, { message: 'Please enter a valid phone number' }),
     __metadata("design:type", String)
 ], ContactUsDto.prototype, "phoneNumber", void 0);
 __decorate([

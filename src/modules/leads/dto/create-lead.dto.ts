@@ -1,4 +1,4 @@
-import { IsDateString, IsEmail, IsEnum, IsMongoId, IsNotEmpty, IsOptional, IsPhoneNumber, IsPositive, IsString } from "class-validator";
+import { IsDateString, IsEmail, IsEnum, IsMongoId, IsNotEmpty, IsOptional, Matches, IsPositive, IsString } from "class-validator";
 import { Types } from "mongoose";
 import { ApiProperty } from "@nestjs/swagger";
 
@@ -17,7 +17,7 @@ export class CreateLeadDto implements Omit<ILead, 'freezed'> {
     email: string;
 
     @ApiProperty({ required: true, example: "1234567890", description: "contact phone number" })
-    @IsPhoneNumber('IN')
+    @Matches(/^\+?[0-9\s()-]{6,20}$/, { message: 'Please enter a valid phone number' })
     @IsNotEmpty()
     phoneNumber: string;
 

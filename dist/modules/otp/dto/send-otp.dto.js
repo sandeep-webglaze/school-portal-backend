@@ -25,8 +25,8 @@ __decorate([
 __decorate([
     (0, swagger_1.ApiProperty)({ required: true, example: "9222443377", description: "user phone number" }),
     (0, class_validator_1.IsNotEmpty)(),
-    (0, class_validator_1.IsMobilePhone)(),
-    (0, class_validator_1.IsPhoneNumber)('IN'),
+    (0, class_validator_1.Matches)(/^\+?[0-9\s()-]{6,20}$/, { message: 'Please enter a valid phone number' }),
+    (0, class_validator_1.Matches)(/^\+?[0-9\s()-]{6,20}$/, { message: 'Please enter a valid phone number' }),
     __metadata("design:type", String)
 ], SendOtpDto.prototype, "phoneNumber", void 0);
 __decorate([
@@ -42,7 +42,7 @@ SendOtpResponse.description = () => 'Sends OTP to given mobile number.';
 __decorate([
     (0, swagger_1.ApiProperty)({ required: true, example: "9222443377", description: "user phone number" }),
     (0, class_validator_1.IsNotEmpty)(),
-    (0, class_validator_1.IsMobilePhone)(),
+    (0, class_validator_1.Matches)(/^\+?[0-9\s()-]{6,20}$/, { message: 'Please enter a valid phone number' }),
     __metadata("design:type", String)
 ], SendOtpResponse.prototype, "phoneNumber", void 0);
 __decorate([

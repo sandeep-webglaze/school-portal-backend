@@ -14,6 +14,7 @@ export const AUTHOR_MODEL = "authors";
 export const SCHOOL_REVIEWS_MODEL = "school_reviews";
 export const SCHOOL_ENQUIRY_MODEL = "enquiries";
 export const CTA_ENQUIRY_MODEL = "cta_enquiries";
+export const NEWSLETTER_MODEL = "newsletter_subscribers";
 export const FAVORITE_SCHOOL_MODEL = "favorite_schools";
 export const LEAD_MODEL = "leads";
 export const TRANSACTION_MODEL = "transactions";

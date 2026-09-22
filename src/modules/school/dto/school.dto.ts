@@ -1,5 +1,5 @@
 import { Transform, Type } from 'class-transformer';
-import { ArrayUnique, IsArray, IsBoolean, IsMongoId, IsNotEmpty, IsNumber, IsOptional, IsPhoneNumber, IsPositive, IsString, Max, Min, ValidateNested } from 'class-validator';
+import { ArrayUnique, IsArray, IsBoolean, IsMongoId, IsNotEmpty, IsNumber, IsOptional, Matches, IsPositive, IsString, Max, Min, ValidateNested } from 'class-validator';
 import { ApiProperty, PartialType } from '@nestjs/swagger';
 
 import { slugify } from '@/src/lib/utils';
@@ -65,7 +65,7 @@ export class CreateSchoolDto implements ISchool {
   classTo: string;
 
   @ApiProperty({ required: true, example: "1212343455", description: "Contact number of school" })
-  @IsPhoneNumber('IN')
+  @Matches(/^\+?[0-9\s()-]{6,20}$/, { message: 'Please enter a valid phone number' })
   contactNumber: string;
 
   @ApiProperty({ required: true, example: "school@mail.com", description: "Contact email of school" })

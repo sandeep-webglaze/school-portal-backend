@@ -1,4 +1,4 @@
-import { IsEmail, IsEnum, IsNotEmpty, IsOptional, IsPhoneNumber, IsString } from "class-validator";
+import { IsEmail, IsEnum, IsNotEmpty, IsOptional, Matches, IsString } from "class-validator";
 import { ApiProperty } from "@nestjs/swagger";
 
 import { PaginateParamDto } from "@/src/lib/shared";
@@ -21,7 +21,7 @@ export class UserFilterDto extends PaginateParamDto implements Partial<IUser> {
     @ApiProperty({ required: false })
     @IsOptional()
     @IsNotEmpty()
-    @IsPhoneNumber('IN')
+    @Matches(/^\+?[0-9\s()-]{6,20}$/, { message: 'Please enter a valid phone number' })
     phoneNumber: string;
 
     @ApiProperty({ required: false, enum: USER_ROLE })

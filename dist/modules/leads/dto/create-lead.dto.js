@@ -43,7 +43,7 @@ __decorate([
 ], CreateLeadDto.prototype, "email", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({ required: true, example: "1234567890", description: "contact phone number" }),
-    (0, class_validator_1.IsPhoneNumber)('IN'),
+    (0, class_validator_1.Matches)(/^\+?[0-9\s()-]{6,20}$/, { message: 'Please enter a valid phone number' }),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
 ], CreateLeadDto.prototype, "phoneNumber", void 0);

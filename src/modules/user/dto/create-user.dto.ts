@@ -6,7 +6,7 @@ import {
   IsMongoId,
   IsNotEmpty,
   IsOptional,
-  IsPhoneNumber,
+  Matches,
   IsString,
 } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
@@ -44,7 +44,7 @@ export class CreateUserDto implements IUser {
   })
   password: string;
 
-  @IsPhoneNumber('IN')
+  @Matches(/^\+?[0-9\s()-]{6,20}$/, { message: 'Please enter a valid phone number' })
   @IsNotEmpty()
   @ApiProperty({
     required: true,

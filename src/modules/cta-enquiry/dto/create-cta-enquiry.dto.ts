@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsPhoneNumber, IsString } from 'class-validator';
+import { IsNotEmpty, Matches, IsString } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateCtaEnquiryDto {
@@ -7,7 +7,7 @@ export class CreateCtaEnquiryDto {
   @IsString()
   name: string;
 
-  @IsPhoneNumber('IN')
+  @Matches(/^\+?[0-9\s()-]{6,20}$/, { message: 'Please enter a valid phone number' })
   @IsNotEmpty()
   @ApiProperty({
     required: true,

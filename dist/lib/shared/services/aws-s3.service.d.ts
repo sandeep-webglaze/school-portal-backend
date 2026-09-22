@@ -9,16 +9,23 @@ export declare class S3Service {
     private bucket;
     private baseUrl;
     private preSignedUrlExpiresIn;
+    private s3Enabled;
+    private cloudinaryEnabled;
+    private preferCloudinary;
     constructor(configService: ConfigService<EnvironmentVariables>);
     private objectKey;
     private generateObjectUrl;
     validateUrl(url: string | URL): boolean;
     generateUniqueFileName(originalName: string): string;
     private getKeyFromUrl;
+    private isCloudinaryUrl;
+    private uploadToCloudinary;
+    private cloudinaryPublicId;
+    private listCloudinary;
     uploadFileSignedUrl(file: Buffer, contentType: string, path: string): Promise<string>;
     listObjects(prefix?: string, searchQuery?: string): Promise<{
         objects: string[];
         totalCount: number;
     }>;
-    removeFile(url: string): Promise<string>;
+    removeFile(url: string): Promise<"skipped" | "removed successfully">;
 }

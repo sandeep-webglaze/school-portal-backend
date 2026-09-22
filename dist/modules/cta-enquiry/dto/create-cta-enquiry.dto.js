@@ -22,7 +22,7 @@ __decorate([
     __metadata("design:type", String)
 ], CreateCtaEnquiryDto.prototype, "name", void 0);
 __decorate([
-    (0, class_validator_1.IsPhoneNumber)('IN'),
+    (0, class_validator_1.Matches)(/^\+?[0-9\s()-]{6,20}$/, { message: 'Please enter a valid phone number' }),
     (0, class_validator_1.IsNotEmpty)(),
     (0, swagger_1.ApiProperty)({
         required: true,

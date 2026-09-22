@@ -24,6 +24,7 @@ import { SlugModule } from './modules/slug/slug.module';
 import { AppConfigurationModule } from './modules/app-configuration/app-configuration.module';
 import { LoggingInterceptor } from './lib/interceptors/ReqResLogger.interceptor';
 import { CtaEnquiryModule } from './modules/cta-enquiry/cta-enquiry.module';
+import { NewsletterModule } from './modules/newsletter/newsletter.module';
 import { AppMetricInterceptor } from './lib/interceptors/AppMetric.interceptor';
 import { AppMetricsModule } from './modules/app-metrics/app-metrics.module';
 import { FavoriteSchoolModule } from './modules/favorite-school/favorite-school.module';
@@ -48,6 +49,7 @@ import { AuthorModule } from './modules/author/author.module';
     SchoolReviewModule,
     HomepageModule,
     OtpModule,
+    NewsletterModule,
     SchoolEnquiryModule,
     UploadModule,
     SchoolTypesModule,

@@ -9,7 +9,7 @@ export declare class UploadService {
         objects: string[];
         totalCount: number;
     }>;
-    checkAndRemoveOldFile(removeFilePath?: string, newFilePath?: string): Promise<string>;
+    checkAndRemoveOldFile(removeFilePath?: string, newFilePath?: string): Promise<"skipped" | "removed successfully">;
     removeFiles(urls?: string[]): Promise<{
         message: string;
     }>;

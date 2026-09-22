@@ -1,4 +1,4 @@
-import { IsEmail, IsNotEmpty, IsObject, IsOptional, IsPhoneNumber, IsString, IsUrl, Length, ValidateNested } from "class-validator";
+import { IsEmail, IsNotEmpty, IsObject, IsOptional, Matches, IsString, IsUrl, Length, ValidateNested } from "class-validator";
 import { Type } from "class-transformer";
 import { ApiProperty } from "@nestjs/swagger";
 
@@ -7,7 +7,7 @@ import { IAppConfig, IContactUs, ISocialMedia } from "../interface";
 
 export class ContactUsDto implements IContactUs {
     @ApiProperty({ required: true, example: "1212121212", description: "Phone number for contact us" })
-    @IsPhoneNumber('IN')
+    @Matches(/^\+?[0-9\s()-]{6,20}$/, { message: 'Please enter a valid phone number' })
     phoneNumber: string;
 
     @ApiProperty({ required: true, example: "contact@mail.com", description: "Contact us mail" })

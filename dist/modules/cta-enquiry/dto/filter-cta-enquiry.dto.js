@@ -25,7 +25,7 @@ __decorate([
 __decorate([
     (0, swagger_1.ApiProperty)({ required: false, description: 'phone number of user' }),
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsPhoneNumber)('IN'),
+    (0, class_validator_1.Matches)(/^\+?[0-9\s()-]{6,20}$/, { message: 'Please enter a valid phone number' }),
     __metadata("design:type", String)
 ], CtaEnquiryFilterDto.prototype, "phoneNumber", void 0);
 //# sourceMappingURL=filter-cta-enquiry.dto.js.map

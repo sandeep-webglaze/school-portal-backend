@@ -14,6 +14,7 @@ export declare const AUTHOR_MODEL = "authors";
 export declare const SCHOOL_REVIEWS_MODEL = "school_reviews";
 export declare const SCHOOL_ENQUIRY_MODEL = "enquiries";
 export declare const CTA_ENQUIRY_MODEL = "cta_enquiries";
+export declare const NEWSLETTER_MODEL = "newsletter_subscribers";
 export declare const FAVORITE_SCHOOL_MODEL = "favorite_schools";
 export declare const LEAD_MODEL = "leads";
 export declare const TRANSACTION_MODEL = "transactions";

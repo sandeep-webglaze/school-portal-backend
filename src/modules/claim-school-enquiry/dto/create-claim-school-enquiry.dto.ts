@@ -1,4 +1,4 @@
-import { IsEmail, IsNotEmpty, IsPhoneNumber, IsString } from 'class-validator';
+import { IsEmail, IsNotEmpty, Matches, IsString } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 import { IClaimSchoolEnquiry } from '../interface';
@@ -26,7 +26,7 @@ export class CreateClaimSchoolEnquiryDto implements IClaimSchoolEnquiry {
     example: '1234567890',
     description: 'contact phone number',
   })
-  @IsPhoneNumber('IN')
+  @Matches(/^\+?[0-9\s()-]{6,20}$/, { message: 'Please enter a valid phone number' })
   @IsNotEmpty()
   phoneNumber: string;
 

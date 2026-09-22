@@ -1,4 +1,4 @@
-import { IsOptional, IsPhoneNumber, IsString } from 'class-validator';
+import { IsOptional, Matches, IsString } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 import { PaginateParamDto } from '@/src/lib/shared';
@@ -16,6 +16,6 @@ export class CtaEnquiryFilterDto
 
   @ApiProperty({ required: false, description: 'phone number of user' })
   @IsOptional()
-  @IsPhoneNumber('IN')
+  @Matches(/^\+?[0-9\s()-]{6,20}$/, { message: 'Please enter a valid phone number' })
   phoneNumber: string;
 }

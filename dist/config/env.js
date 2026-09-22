@@ -147,25 +147,50 @@ __decorate([
     __metadata("design:type", String)
 ], EnvironmentVariables.prototype, "WHATSAPP_TEMPLATE_LANGUAGE", void 0);
 __decorate([
+    (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsString)({ message: 'Invalid S3_REGION' }),
     __metadata("design:type", String)
 ], EnvironmentVariables.prototype, "S3_REGION", void 0);
 __decorate([
+    (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsString)({ message: 'Invalid S3_BUCKET' }),
     __metadata("design:type", String)
 ], EnvironmentVariables.prototype, "S3_BUCKET", void 0);
 __decorate([
+    (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsString)({ message: 'Invalid S3_BUCKET_PUBLIC_FOLDER' }),
     __metadata("design:type", String)
 ], EnvironmentVariables.prototype, "S3_BUCKET_PUBLIC_FOLDER", void 0);
 __decorate([
+    (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsString)({ message: 'Invalid S3_ACCESS_KEY_ID' }),
     __metadata("design:type", String)
 ], EnvironmentVariables.prototype, "S3_ACCESS_KEY_ID", void 0);
 __decorate([
+    (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsString)({ message: 'Invalid S3_SECRET_ACCESS_KEY' }),
     __metadata("design:type", String)
 ], EnvironmentVariables.prototype, "S3_SECRET_ACCESS_KEY", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)({ message: 'Invalid CLOUDINARY_CLOUD_NAME' }),
+    __metadata("design:type", String)
+], EnvironmentVariables.prototype, "CLOUDINARY_CLOUD_NAME", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)({ message: 'Invalid CLOUDINARY_API_KEY' }),
+    __metadata("design:type", String)
+], EnvironmentVariables.prototype, "CLOUDINARY_API_KEY", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)({ message: 'Invalid CLOUDINARY_API_SECRET' }),
+    __metadata("design:type", String)
+], EnvironmentVariables.prototype, "CLOUDINARY_API_SECRET", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)({ message: 'Invalid STORAGE_PROVIDER' }),
+    __metadata("design:type", String)
+], EnvironmentVariables.prototype, "STORAGE_PROVIDER", void 0);
 __decorate([
     (0, class_validator_1.IsString)({ message: 'Invalid REDIS_HOST' }),
     __metadata("design:type", String)

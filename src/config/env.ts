@@ -1,5 +1,5 @@
 import { Transform } from 'class-transformer';
-import { IsEnum, IsNumber, IsPositive, IsString } from 'class-validator';
+import { IsEnum, IsNumber, IsOptional, IsPositive, IsString } from 'class-validator';
 
 import { NODE_ENVIRONMENT } from '../lib/constants';
 
@@ -118,22 +118,51 @@ export class EnvironmentVariables {
   @IsString({ message: 'Invalid WHATSAPP_TEMPLATE_LANGUAGE' })
   WHATSAPP_TEMPLATE_LANGUAGE: string;
 
-  // ******************** >>> AWS S3 Bucket Configuration <<< **********************
+  // ******************** >>> AWS S3 Bucket Configuration (optional) <<< **********************
+  // S3 is used first when its keys are set. If they are empty/missing, the app
+  // falls back to Cloudinary (below). So all S3 keys are optional now.
 
+  @IsOptional()
   @IsString({ message: 'Invalid S3_REGION' })
-  S3_REGION: string;
+  S3_REGION?: string;
 
+  @IsOptional()
   @IsString({ message: 'Invalid S3_BUCKET' })
-  S3_BUCKET: string;
+  S3_BUCKET?: string;
 
+  @IsOptional()
   @IsString({ message: 'Invalid S3_BUCKET_PUBLIC_FOLDER' })
-  S3_BUCKET_PUBLIC_FOLDER: string;
+  S3_BUCKET_PUBLIC_FOLDER?: string;
 
+  @IsOptional()
   @IsString({ message: 'Invalid S3_ACCESS_KEY_ID' })
-  S3_ACCESS_KEY_ID: string;
+  S3_ACCESS_KEY_ID?: string;
 
+  @IsOptional()
   @IsString({ message: 'Invalid S3_SECRET_ACCESS_KEY' })
-  S3_SECRET_ACCESS_KEY: string;
+  S3_SECRET_ACCESS_KEY?: string;
+
+  // ******************** >>> Cloudinary Configuration (fallback, optional) <<< **********************
+  // Used automatically when S3 keys are empty. Set these on the server to
+  // enable Cloudinary image uploads.
+
+  @IsOptional()
+  @IsString({ message: 'Invalid CLOUDINARY_CLOUD_NAME' })
+  CLOUDINARY_CLOUD_NAME?: string;
+
+  @IsOptional()
+  @IsString({ message: 'Invalid CLOUDINARY_API_KEY' })
+  CLOUDINARY_API_KEY?: string;
+
+  @IsOptional()
+  @IsString({ message: 'Invalid CLOUDINARY_API_SECRET' })
+  CLOUDINARY_API_SECRET?: string;
+
+  // Optional switch: 's3' | 'cloudinary'. Leave empty for AUTO
+  // (S3 if its keys exist, otherwise Cloudinary).
+  @IsOptional()
+  @IsString({ message: 'Invalid STORAGE_PROVIDER' })
+  STORAGE_PROVIDER?: string;
 
   // ******************** >>> Redis Configuration <<< **********************
 

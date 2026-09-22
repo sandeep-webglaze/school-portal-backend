@@ -32,6 +32,7 @@ const slug_module_1 = require("./modules/slug/slug.module");
 const app_configuration_module_1 = require("./modules/app-configuration/app-configuration.module");
 const ReqResLogger_interceptor_1 = require("./lib/interceptors/ReqResLogger.interceptor");
 const cta_enquiry_module_1 = require("./modules/cta-enquiry/cta-enquiry.module");
+const newsletter_module_1 = require("./modules/newsletter/newsletter.module");
 const AppMetric_interceptor_1 = require("./lib/interceptors/AppMetric.interceptor");
 const app_metrics_module_1 = require("./modules/app-metrics/app-metrics.module");
 const favorite_school_module_1 = require("./modules/favorite-school/favorite-school.module");
@@ -59,6 +60,7 @@ exports.AppModule = AppModule = __decorate([
             school_review_module_1.SchoolReviewModule,
             homepage_module_1.HomepageModule,
             otp_module_1.OtpModule,
+            newsletter_module_1.NewsletterModule,
             school_enquiry_module_1.SchoolEnquiryModule,
             upload_module_1.UploadModule,
             school_types_module_1.SchoolTypesModule,
